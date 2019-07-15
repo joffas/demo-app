@@ -1,0 +1,37 @@
+<hbox justify="center" class="content-perfil">
+  <box xs="6">
+    {{#ui-validated-form model=usuario validateOnly="nome,email" onSuccess=(action "salvar")}}
+      {{#ui-section "usuario" as |section|}}
+        {{#section.content}}
+          <hbox wrap>
+            <box xs="12">
+              {{ ui-input
+                  class="nome"
+                  label="Nome"
+                  value=usuario.nome
+                  errors=(v-errors usuario.errors "nome")
+                  onChange=(action (mut usuario.nome)) }}
+            </box>
+            <box xs="12">
+              {{ ui-input
+                  class="email"
+                  label="Email"
+                  value=usuario.email
+                  errors=(v-errors usuario.errors "email")
+                  onChange=(action (mut usuario.email)) }}
+            </box>
+          </hbox>
+
+          <hbox fit>
+            {{#ui-button primary=true raised=true class="salvar" type="submit"}}
+              Salvar
+            {{/ui-button}}
+            {{#ui-button class="cancelar" onClick=(action "cancelar")}}
+              Cancelar
+            {{/ui-button}}
+          </hbox>
+        {{/section.content}}
+      {{/ui-section}}
+    {{/ui-validated-form}}
+  </box>
+</hbox>

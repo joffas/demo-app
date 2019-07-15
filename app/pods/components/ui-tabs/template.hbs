@@ -1,0 +1,16 @@
+{{#if shouldPaginate}}
+  <box xs="1" align="center" justify="center">
+    {{#ui-button iconButton=true onClick=(action "scrollLeft")}}{{paper-icon "chevron left"}}{{/ui-button}}
+  </box>
+{{/if}}
+<hbox class="ui-tabs-wrapper">
+  {{yield (hash
+    container=(component "ui-tabs/container")
+    tab=(component "ui-tabs/container/tab")
+  )}}
+</hbox>
+{{#if shouldPaginate}}
+  <box xs="1" align="center" justify="center">
+    {{#ui-button iconButton=true onClick=(action "scrollRight")}}{{paper-icon "chevron right"}}{{/ui-button}}
+  </box>
+{{/if}}

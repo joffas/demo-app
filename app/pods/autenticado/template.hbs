@@ -1,0 +1,109 @@
+{{!-- {{#paper-sidenav-container class="inner-sidenav"}} --}}
+
+{{#paper-sidenav class="md-whiteframe-z2 nav-acesso" name="left-side-nav" open=leftSideBarOpen onToggle=(action (mut leftSideBarOpen))}}
+  {{#ui-toolbar xs="6" sm="4" md="3" lg="2" class="toolbar-selecao" as |toolbar|}}
+    {{#toolbar.content justify="center"}}
+      <span class="md-title">Agenda Milionária</span>
+    {{/toolbar.content}}
+
+    {{#toolbar.content fit=true justify="center" classNames="margin middle-divider"}}
+      {{#ui-button raised=true iconButton=true onClick=(transition-to "autenticado.perfil")}}
+        {{ paper-icon "person" }}
+        {{#paper-tooltip position="top"}}
+          Perfil
+        {{/paper-tooltip}}
+      {{/ui-button}}
+    {{/toolbar.content}}
+  {{/ui-toolbar}}
+
+  {{#ui-menu as |menu|}}
+    {{ menu.item "Contatos" "autenticado.clientes.lista" icone="group" class="contatos" }}
+  {{/ui-menu}}
+
+{{/paper-sidenav}}
+
+{{#paper-card-content class="flex"}}
+  {{#ui-toolbar  class="toolbar-operador" style="height: 500px" as |toolbar|}}
+    {{#toolbar.content justify="end"}}
+
+      {{#paper-sidenav-toggle name="left-side-nav" as |toggleAction|}}
+        {{#paper-button raised=false classNames="hide-gt-sm menu-button" onClick=(action toggleAction)}}
+          {{ paper-icon "menu" }}
+        {{/paper-button}}
+      {{/paper-sidenav-toggle}}
+
+
+      {{#ui-button iconButton=true}}
+        {{ paper-icon "search" }}
+        {{#paper-tooltip position="bottom"}}
+          Pesquisa
+        {{/paper-tooltip}}
+      {{/ui-button}}
+
+      {{#ui-button iconButton=true}}
+        {{ paper-icon "notifications" }}
+        {{#paper-tooltip position="bottom"}}
+          Notificações
+        {{/paper-tooltip}}
+      {{/ui-button}}
+
+      {{ menu-usuario }}
+
+    {{/toolbar.content}}
+  {{/ui-toolbar}}
+{{/paper-card-content}}
+
+{{!-- {{/paper-sidenav-container}} --}}
+
+
+{{!-- {{#paper-sidenav class=(concat "nav-acesso" (if open " joffas-open")) name="left-side-nav" lockedOpen=true}}
+  {{#ui-toolbar xs="6" sm="4" md="3" lg="2" class="toolbar-selecao" as |toolbar|}}
+    {{#toolbar.content justify="center"}}
+      <span class="md-title">Agenda Milionária</span>
+    {{/toolbar.content}}
+
+    {{#toolbar.content fit=true justify="center" classNames="margin middle-divider"}}
+      {{#ui-button raised=true iconButton=true onClick=(transition-to "autenticado.perfil")}}
+        {{ paper-icon "person" }}
+        {{#paper-tooltip position="top"}}
+          Perfil
+        {{/paper-tooltip}}
+      {{/ui-button}}
+    {{/toolbar.content}}
+  {{/ui-toolbar}}
+
+  {{#ui-menu as |menu|}}
+    {{ menu.item "Contatos" "autenticado.clientes.lista" icone="group" class="contatos" }}
+  {{/ui-menu}}
+
+{{/paper-sidenav}}
+
+
+{{#ui-toolbar  xs="12" sm="12" md="12" lg="12" class="toolbar-operador" as |toolbar|}}
+  {{#toolbar.content justify="end"}}
+    {{#ui-button iconButton=true onClick=(action (toggle 'open' this))}}
+      !
+    {{/ui-button}}
+
+    {{#ui-button iconButton=true}}
+      {{ paper-icon "search" }}
+      {{#paper-tooltip position="bottom"}}
+        Pesquisa
+      {{/paper-tooltip}}
+    {{/ui-button}}
+
+    {{#ui-button iconButton=true}}
+      {{ paper-icon "notifications" }}
+      {{#paper-tooltip position="bottom"}}
+        Notificações
+      {{/paper-tooltip}}
+    {{/ui-button}}
+
+    {{ menu-usuario }}
+
+  {{/toolbar.content}}
+{{/ui-toolbar}} --}}
+
+{{ ui-flash-queue }}
+
+{{ outlet }}

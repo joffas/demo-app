@@ -1,0 +1,10 @@
+<box fit class="ui-menu-item {{ if isOpen "expanded" }}">
+  {{#ui-button class="ui-menu-button" onClick=(action onOpen elementId)}}
+    {{ paper-icon icone }}
+    {{ titulo }}
+    {{ ui-expand-icon active=isOpen }}
+  {{/ui-button}}
+</box>
+<box fit class="ui-menu-grupo {{ if isOpen "active" }}">
+  {{ yield (hash item=(component "ui-menu/item" onActive=(action onActive elementId))) }}
+</box>

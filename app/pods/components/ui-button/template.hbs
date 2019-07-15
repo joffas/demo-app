@@ -1,0 +1,40 @@
+{{#if hasBlock}}
+  {{#paper-button
+    type=type
+    id=id
+    class=class
+    primary=primary
+    noink=noink
+    warn=warn
+    href=href
+    iconButton=iconButton
+    bubble=bubble
+    fab=fab
+    mini=mini
+    accent=accent
+    targuet=targuet
+    raised=raised
+    onClick=(action onClick)
+    disabled=disabled}}
+    {{ yield }}
+  {{/paper-button}}
+{{else}}
+  {{paper-button
+    type=type
+    id=id
+    class=class
+    label=label
+    primary=primary
+    noink=noink
+    warn=warn
+    href=href
+    iconButton=iconButton
+    bubble=bubble
+    fab=fab
+    mini=mini
+    accent=accent
+    targuet=targuet
+    raised=raised
+    onClick=(action onClick)
+    disabled=disabled}}
+{{/if}}

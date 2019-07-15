@@ -1,0 +1,9 @@
+<hbox justify="center" class="content-perfil">
+  <hbox justify="center" class="contain lista-cargos padding">
+    {{#each model as |cargo|}}
+      {{#ui-button class="item-cargo" raised=true onClick=(route-action "toCargo" cargo)}}
+        <span class="nome">{{ cargo.nome }}</span>
+      {{/ui-button}}
+    {{/each}}
+  </hbox>
+</hbox>

@@ -1,0 +1,41 @@
+{{#ui-toolbar class="toolbar-condominio" as |toolbar|}}
+  {{#toolbar.actions}}
+    {{#ui-button class="novo" accent=true raised=true fab=true onClick=(transition-to "autenticado.clientes.novo")}}
+      {{ paper-icon "add" }}
+    {{/ui-button}}
+  {{/toolbar.actions}}
+
+  {{#toolbar.content}}
+    <span class="md-header">Contatos</span>
+  {{/toolbar.content}}
+{{/ui-toolbar}}
+
+<box class="content-operador">
+  {{#paper-list class="lista-condominios striped"}}
+    {{#paper-subheader}}
+      Meus contatos
+    {{/paper-subheader}}
+
+    {{#each model as |cliente|}}
+
+      {{#paper-item class="item md-2-line" onClick=(transition-to "autenticado.clientes.editar" cliente.id)}}
+        <hbox class="list-item-action"></hbox>
+        <hbox class="md-list-item-text">
+          <box xs="5" class="razao-social">{{ cliente.nome }}</box>
+          <box class="documento">{{ cliente.email }}</box>
+        </hbox>
+      {{/paper-item}}
+
+    {{else}}
+
+      {{#paper-item class="item md-2-line"}}
+        <box class="list-item-action"></box>
+        <box class="md-list-item-text">
+          <h3 class="mensagem">Nenhum contato foi encontrado.</h3>
+          {{#link-to "autenticado.clientes.novo" classNames="novo"}}Cadastre um clicando aqui!{{/link-to}}
+        </box>
+      {{/paper-item}}
+
+    {{/each}}
+  {{/paper-list}}
+</box>

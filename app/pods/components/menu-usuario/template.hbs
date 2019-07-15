@@ -1,0 +1,18 @@
+{{#paper-menu position="target-right target" as |menu|}}
+  {{#menu.trigger class="menu-usuario"}}
+    {{#ui-button class="toolbar-button pequeno circular"}}
+      {{paper-icon "person"}}
+      {{!-- <img src={{ autenticacao.usuario.imagem }} class="avatar pequeno"> --}}
+    {{/ui-button}}
+  {{/menu.trigger}}
+  {{#menu.content width=3 as |content|}}
+    {{#content.menu-item onClick=(transition-to "autenticado.perfil")}}
+      {{paper-icon "person"}}
+      <span>Perfil</span>
+    {{/content.menu-item}}
+    {{#content.menu-item onClick=(action "invalidarSessao")}}
+      {{paper-icon "exit to app"}}
+      <span>Sair</span>
+    {{/content.menu-item}}
+  {{/menu.content}}
+{{/paper-menu}}

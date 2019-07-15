@@ -1,0 +1,14 @@
+{{#ui-select
+  label=label
+  placeholder=placeholder
+  class=class
+  options=options
+  selected=selected
+  onChange=onChange
+  required=required
+  isTouched=true
+  errors=errors
+  errorMessages=errorMessages
+  disabled=disabled as |option|}}
+  {{yield option}}
+{{/ui-select}}

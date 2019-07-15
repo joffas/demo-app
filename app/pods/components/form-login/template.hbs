@@ -1,0 +1,33 @@
+{{#ui-form action=(perform autenticar identificacao senha) as |form|}}
+  <vbox>
+    <hbox>
+      {{ui-input
+        label="Seu endereço de email"
+        class="identificacao"
+        type="email"
+        value=identificacao
+        icon="mail"
+        onChange=(action (mut identificacao))
+        disabled=form.disabled}}
+    </hbox>
+    <hbox>
+      {{ui-input
+        label="Sua senha"
+        class="senha"
+        type="password"
+        value=senha
+        icon="lock"
+        onChange=(action (mut senha))
+        disabled=form.disabled}}
+    </hbox>
+    <hbox>
+      {{ui-button
+        type="submit"
+        class="confirmar flex"
+        raised=true
+        primary=true
+        label="Entrar"
+        disabled=form.disabled}}
+    </hbox>
+  </vbox>
+{{/ui-form}}

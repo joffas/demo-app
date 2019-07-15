@@ -1,0 +1,41 @@
+{{#ui-toolbar class="toolbar-condominio" as |toolbar|}}
+  {{#toolbar.content}}
+    <span class="md-header">Editando {{ cliente.nome }}</span>
+  {{/toolbar.content}}
+{{/ui-toolbar}}
+
+<box class="content-operador">
+  <form {{ action "salvar" cliente on="submit" }} class="flex" >
+    {{#ui-section "form" as |section|}}
+      {{#section.actions}}
+        {{ paper-icon "group" }}
+      {{/section.actions}}
+
+      {{#section.content}}
+        {{#section.header}}
+          Dados do Contato
+        {{/section.header}}
+        <hbox wrap>
+          <box xs="12">
+            {{paper-input label="Nome" value=cliente.nome onChange=(action (mut cliente.nome)) errors=(v-errors cliente.errors "nome") isTouched=true}}
+          </box>
+          <box xs="12" sm="9" md="6" lg="6">
+            <PaperInput @label="E-mail" @value={{ cliente.email }} @onChange={{ action (mut cliente.email) }} @icon="email" @errors={{ v-errors cliente.errors "email" }}
+            @isTouched={{ true }} />
+          </box>
+          <box xs="12" sm="9" md="6" lg="6">
+            {{paper-input label="CPF / CNPJ" value=cliente.documento onChange=(action (mut cliente.documento)) errors=(v-errors cliente.errors "documento") isTouched=true}}
+          </box>
+        </hbox>
+      {{/section.content}}
+    {{/ui-section}}
+    {{#ui-section "acoes" as |section|}}
+      {{#section.content}}
+        <hbox>
+          {{#paper-button raised=true primary=true type="submit"}}Salvar{{/paper-button}}
+          {{#paper-button raised=true primary=true onClick=(action "cancelar")}}Cancelar{{/paper-button}}
+        </hbox>
+      {{/section.content}}
+    {{/ui-section}}
+  </form>
+</box>

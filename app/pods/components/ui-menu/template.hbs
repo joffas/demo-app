@@ -1,0 +1,13 @@
+{{ yield
+  (hash
+    item=(component "ui-menu/item"
+      currentActive=currentActive
+      onActive=(action (pipe (action "onOpen") (action "onActive")))
+    )
+    grupo=(component "ui-menu/grupo"
+      currentActive=currentActive
+      currentOpen=currentOpen
+      onActive=(action "onActive")
+      onOpen=(action "onOpen")
+    )
+  )}}

@@ -1,0 +1,10 @@
+{{#paper-toolbar class=(concat "ui-toolbar " class)}}
+  <box>
+
+    {{ yield (hash
+        content=(component "ui-toolbar/content")
+        actions=(component "ui-toolbar/actions")
+      )}}
+
+  </box>
+{{/paper-toolbar}}

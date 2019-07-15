@@ -1,0 +1,84 @@
+{{#if (eq type "money")}}
+  {{paper-input
+    class=classes
+    id=id
+    flex=flex
+    label=label
+    type=type
+    value=displayValue
+    step="0.01"
+    onChange=( action "onChangeMoney" value)
+    onFocus=( action "onFocusMoney" true )
+    onBlur=( action "onBlurMoney" )
+    onKeyDown=( action "onKeyDownMoney" )
+    min=min
+    max=max
+    onFocusOut=onFocusOut
+    maxlength=maxlength
+    required=required
+    errors=errors
+    hasFocus=hasFocus
+    placeholder=placeholder
+    disabled=disabled
+    textarea=textarea
+    isTouched=true
+    icon=icon
+    iconRight=iconRight
+    passThru=passThru
+  }}
+{{else if (eq type "mask")}}
+  {{paper-input
+    class=classes
+    id=id
+    flex=flex
+    label=label
+    type=type
+    mask=mask
+    onFocusOut=onFocusOut
+    value=displayValueMask
+    onChange=onChange
+    onFocus=( action "onEnterMask")
+    onBlur=( action "onExitMask" )
+    onKeyDown=onKeyDown
+    min=min
+    max=max
+    maxlength=maxlength
+    required=required
+    errors=errors
+    hasFocus=hasFocus
+    placeholder=placeholder
+    disabled=disabled
+    textarea=textarea
+    isTouched=true
+    icon=icon
+    iconRight=iconRight
+    passThru=passThru
+  }}
+{{else}}
+  {{paper-input
+    class=classes
+    id=id
+    flex=flex
+    label=label
+    type=type
+    value=value
+    onChange=onChange
+    onFocus=onFocus
+    onBlur=onBlur
+    onFocusOut=onFocusOut
+    onKeyDown=onKeyDown
+    min=min
+    max=max
+    maxlength=maxlength
+    required=required
+    errors=errors
+    hasFocus=hasFocus
+    placeholder=placeholder
+    disabled=disabled
+    textarea=textarea
+    isTouched=true
+    icon=icon
+    iconRight=iconRight
+    passThru=passThru
+  }}
+{{/if}}

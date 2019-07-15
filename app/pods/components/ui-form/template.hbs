@@ -1,0 +1,4 @@
+<form class="flex" {{ action (perform submit) on="submit" }} novalidate="true" autocomplete="off">
+  {{ yield (hash
+    disabled=submit.isRunning) }}
+</form>

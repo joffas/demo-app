@@ -1,0 +1,88 @@
+export default [
+
+  {
+    id: 1,
+    razaoSocial: 'Condominio Residencial Acquare',
+    nomeFantasia: 'Residencial Acquare',
+    apelido: 'Acquare',
+    documento: '15459169000181',
+    area: '9874',
+    codigo: '1',
+    status: true,
+    enderecoId: 3,
+    telefoneIds: [1,2,3],
+    administradoraId: 1,
+    planoId: 1
+  },
+  {
+    id: 2,
+    razaoSocial: 'Condominio de Residencias Vilas de São Francisco',
+    nomeFantasia: 'Residencias Vilas de São Francisco',
+    apelido: 'Vilas São Francisco',
+    documento: '05262962000132',
+    area: '10000',
+    codigo: '2',
+    status: true,
+    enderecoId: 4,
+    emailIds: [2,3],
+    administradoraId: 1,
+    planoId: 1
+  },
+  {
+    id: 3,
+    razaoSocial: 'Condominio do Edificio Morada Taruma',
+    nomeFantasia: 'Morada Taruma',
+    apelido: 'Taruma',
+    documento: '19522134000109',
+    area: '2023',
+    codigo: '3',
+    status: true,
+    enderecoId: 5,
+    telefoneIds: [1,3],
+    administradoraId: 1,
+    planoId: 1
+  },
+  {
+    id: 4,
+    razaoSocial: 'Condominio Edifico Maison Alhambra',
+    nomeFantasia: 'Maison Alhambra',
+    apelido: 'Alhambra',
+    documento: '03422596000106',
+    area: '1023',
+    codigo: '4',
+    status: true,
+    enderecoId: 6,
+    telefoneIds: [1,2],
+    administradoraId: 2,
+    planoId: 2
+  },
+  {
+    id: 5,
+    razaoSocial: 'Condominio Residencial Terra Norte',
+    nomeFantasia: 'Residencial Terra Norte',
+    apelido: 'Terra Norte',
+    documento: '17653784000150',
+    area: '1233',
+    codigo: '5',
+    status: true,
+    enderecoId: 7,
+    telefoneIds: [3,2],
+    administradoraId: 2,
+    planoId: 2
+  },
+  {
+    id: 6,
+    razaoSocial: 'Condominio Horizontal Gralha Azul',
+    nomeFantasia: 'Horizontal Gralha Azul',
+    apelido: 'Gralha Azul',
+    documento: '09632972000173',
+    area: '2233',
+    codigo: '6',
+    status: true,
+    enderecoId: 8,
+    telefoneIds: [3,1],
+    administradoraId: 2,
+    planoId: 2
+  },
+
+];

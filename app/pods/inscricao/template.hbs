@@ -1,0 +1,65 @@
+<centered class="inscricao-container">
+  {{#paper-card class="inscricao-card"}}
+    <hbox>
+      <vbox class="inscricao-card-lado-esquerdo">
+        <box>
+          <h3>Contatos Milionário</h3>
+          <h4>Gerencie seus Contatos de forma eficiente.</h4>
+          <p>Experimente o Contatos Milionário grátis por 30 dias.</p>
+        </box>
+        <box fit class="inscricao-login">
+          <p>Já possui conta?</p>
+          {{#ui-button class="login" raised=true noink=true onClick=(transition-to "login")}}
+            Login
+          {{/ui-button}}
+        </box>
+      </vbox>
+      <vbox class="inscricao-card-lado-direito">
+        <h3>Crie a sua conta</h3>
+        {{#ui-validated-form model=usuario onSuccess=(action "inscrever")}}
+          <hbox>
+            <box xs="12" >
+              {{ ui-input
+                  label="Qual é seu nome?"
+                  value=usuario.nome
+                  class="nome"
+                  errors=(v-errors usuario.errors "nome")
+                  onChange=(action (mut usuario.nome)) }}
+            </box>
+            <box xs="12">
+              {{ ui-input
+                  label="Qual o seu endereço de e-mail"
+                  value=usuario.email
+                  class="email"
+                  errors=(v-errors usuario.errors "email")
+                  onChange=(action (mut usuario.email)) }}
+            </box>
+            <box xs="12" sm="6">
+              {{ ui-input
+                  type="password"
+                  label="Crie sua senha"
+                  value=usuario.senha
+                  class="senha"
+                  errors=(v-errors usuario.errors "senha")
+                  onChange=(action (mut usuario.senha)) }}
+            </box>
+            <box xs="12" sm="6">
+              {{ ui-input
+                  type="password"
+                  label="Confirme sua senha"
+                  value=usuario.confirmarSenha
+                  class="confirmar-senha"
+                  errors=(v-errors usuario.errors "confirmarSenha")
+                  onChange=(action (mut usuario.confirmarSenha)) }}
+            </box>
+          </hbox>
+          <hbox>
+            {{#ui-button primary=true raised=true class="flexi-fill inscrever" type="submit"}}
+              Inscrever-se
+            {{/ui-button}}
+          </hbox>
+        {{/ui-validated-form}}
+      </vbox>
+    </hbox>
+  {{/paper-card}}
+</centered>

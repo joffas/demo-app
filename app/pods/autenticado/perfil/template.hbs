@@ -1,0 +1,21 @@
+{{#ui-toolbar class="toolbar-perfil" as |toolbar|}}
+  {{#toolbar.content justify="center"}}
+    <box></box>
+    <box fit justify="center" class="contain">
+      <hbox>
+        <img class="avatar grande" alt="" src={{ model.imagem }}>
+        <box justify="center" class="padding">
+          <span class="md-headline">{{ model.nome }}</span>
+          <span class="md-body-1">{{ model.email }}</span>
+        </box>
+      </hbox>
+    </box>
+    <box align="start">
+      {{#ui-button onClick=(route-action "invalidateSession") class="sair"}}
+        {{ paper-icon "exit to app" }}
+      {{/ui-button}}
+    </box>
+  {{/toolbar.content}}
+{{/ui-toolbar}}
+
+{{ outlet }}

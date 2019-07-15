@@ -1,0 +1,55 @@
+{{#if (eq type "money")}}
+  {{ paper-input
+    id=id
+    min=min
+    max=max
+    flex=flex
+    icon=icon
+    mask=mask
+    type=type
+    step="0.01"
+    label=label
+    class=class
+    errors=errors
+    isTouched=true
+    hasFocus=hasFocus
+    passThru=passThru
+    required=required
+    disabled=disabled
+    textarea=textarea
+    value=displayValue
+    maxlength=maxlength
+    iconRight=iconRight
+    placeholder=placeholder
+    errorMessages=errorMessages
+    onBlur=( action "onBlurMoney" )
+    onKeyDown=( action "onKeyDownMoney" )
+    onFocus=( action "onFocusMoney" true )
+    onChange=( action "onChangeMoney" value) }}
+{{else}}
+  {{ ui-input
+    id=id
+    min=min
+    max=max
+    flex=flex
+    icon=icon
+    mask=mask
+    type=type
+    label=label
+    class=class
+    value=value
+    onBlur=onBlur
+    errors=errors
+    onFocus=onFocus
+    textarea=textarea
+    onChange=onChange
+    required=required
+    hasFocus=hasFocus
+    passThru=passThru
+    disabled=disabled
+    onKeyDown=onKeyDown
+    iconRight=iconRight
+    precision=precision
+    maxlength=maxlength
+    placeholder=placeholder }}
+{{/if}}

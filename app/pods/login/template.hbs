@@ -1,0 +1,18 @@
+<centered class="login-container">
+  <vbox xs="12" sm="8" md="6" lg="4">
+    <box fit class="padding">
+      <h2 class="assinatura-header-title">Bem vindo a Agenda Milionária!</h2>
+    </box>
+    {{#paper-card as |card|}}
+      {{#card.content}}
+        {{ form-login }}
+      {{/card.content}}
+    {{/paper-card}}
+    {{#paper-card as |card|}}
+      {{#card.content class="layout-column layout-align-center-center"}}
+        <span class="padding">Novo na Agenda Milionária?</span>
+        {{ ui-button primary=true label="Cadastre-se" class="inscricao" onClick=(transition-to "inscricao") }}
+      {{/card.content}}
+    {{/paper-card}}
+  </vbox>
+</centered>

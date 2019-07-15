@@ -1,0 +1,16 @@
+{{#paper-select
+  label=label
+  placeholder=placeholder
+  class=class
+  options=options
+  searchField="label"
+  selected=selected
+  onChange=onChange
+  required=required
+  isTouched=true
+  errors=errors
+  errorMessages=errorMessages
+  disabled=disabled as |option|
+}}
+  {{yield option}}
+{{/paper-select}}
