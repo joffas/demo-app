@@ -26,6 +26,16 @@
           <box xs="12" sm="9" md="6" lg="6">
             {{paper-input label="CPF / CNPJ" value=cliente.documento onChange=(action (mut cliente.documento)) errors=(v-errors cliente.errors "documento") isTouched=true}}
           </box>
+          <box xs="12" sm="3">
+            {{#ui-select
+              class="estado"
+              label="Estado *"
+              selected=cliente.estado
+              options=estados
+              onChange=(action "onChangeEstado") as |estado|}}
+              {{estado.sigla}}
+            {{/ui-select}}
+          </box>
         </hbox>
       {{/section.content}}
     {{/ui-section}}

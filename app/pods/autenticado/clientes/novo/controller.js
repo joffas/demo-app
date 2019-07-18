@@ -1,9 +1,9 @@
 import Controller from '@ember/controller';
 import { alias } from '@ember/object/computed';
-
+import { set } from '@ember/object';
 export default Controller.extend({
 
-  cliente: alias('model'),
+  cliente: alias('model.pessoa'),
   estados: alias('model.estados'),
 
   transitionToClientes(){
@@ -22,6 +22,16 @@ export default Controller.extend({
 
     cancelar() {
       this.transitionToClientes();
+    },
+
+    onChangeEstado(selected) {
+      set(this, 'selectedEstado', selected);
+      set(this, 'cliente.estado', selected);
+
+      // const mun = get(changeset, 'municipio');
+      // if (!(isEmpty(mun.id))) {
+      //   set(changeset, 'municipio', '' );
+      // }
     }
 
   }

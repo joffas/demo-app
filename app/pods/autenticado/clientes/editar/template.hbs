@@ -19,20 +19,33 @@
           <box xs="12">
             {{paper-input label="Nome" value=cliente.nome onChange=(action (mut cliente.nome)) errors=(v-errors cliente.errors "nome") isTouched=true}}
           </box>
-          <box xs="12" sm="9" md="6" lg="6">
+          <box xs="12" sm="12" md="6" lg="6">
             {{paper-input label="E-mail" value=cliente.email onChange=(action (mut cliente.email)) errors=(v-errors cliente.errors "email") isTouched=true}}
           </box>
-          <box xs="12" sm="9" md="6" lg="6">
+          <box xs="12" md="6">
             {{paper-input label="CPF / CNPJ" value=cliente.documento onChange=(action (mut cliente.documento)) errors=(v-errors cliente.errors "documento") isTouched=true}}
           </box>
-          <box xs="12" sm="3">
+          <box xs="3">
             {{#ui-select
               class="estado"
               label="Estado *"
-              selected=cliente.estado
+              selected=(if selectedEstado selectedEstado cliente.municipio.estado )
               options=estados
               onChange=(action "onChangeEstado") as |estado|}}
               {{estado.sigla}}
+            {{/ui-select}}
+          </box>
+          <box xs="9">
+            {{#ui-select
+                label="Municipio *"
+                class="municipio"
+                selected=cliente.municipio
+                errors=(v-errors cliente.errors "municipio")
+                options=municipios
+                onChange=(action "onChangeMunicipio")
+                as |municipio|
+                }}
+              {{ municipio.nome }}
             {{/ui-select}}
           </box>
         </hbox>

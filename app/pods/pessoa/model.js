@@ -9,6 +9,7 @@ export default Model.extend(Validator, {
   email: attr('string'),
   documento: attr('string'),
   estado: belongsTo('estado'),
+  municipio: belongsTo('municipio'),
 
   validations: Object.freeze({
     nome: {
