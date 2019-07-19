@@ -13,16 +13,23 @@
 <box class="content-operador">
   {{#paper-list class="lista-condominios striped"}}
     {{#paper-subheader}}
-      Meus contatos
+      <box xs="12">
+      {{ paper-input
+        class="nome"
+        value=nome
+        onChange=(action (mut nome))
+        label="Pesquisa contatos..."
+      }}
+      </box>
     {{/paper-subheader}}
 
-    {{#each model as |cliente|}}
+    {{#each pessoas as |cliente|}}
 
       {{#paper-item class="item md-2-line" onClick=(transition-to "autenticado.clientes.editar" cliente.id)}}
         <hbox class="list-item-action"></hbox>
         <hbox class="md-list-item-text">
           <box xs="5" class="razao-social">{{ cliente.nome }}</box>
-          <box class="documento">{{ cliente.email }}</box>
+          <box class="email">{{ cliente.email }}</box>
         </hbox>
       {{/paper-item}}
 

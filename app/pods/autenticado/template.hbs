@@ -24,14 +24,15 @@
 
 {{#paper-card-content class="flex"}}
   {{#ui-toolbar  class="toolbar-operador" style="height: 500px" as |toolbar|}}
-    {{#toolbar.content justify="end"}}
+    {{#toolbar.content}}
 
       {{#paper-sidenav-toggle name="left-side-nav" as |toggleAction|}}
-        {{#paper-button raised=false classNames="hide-gt-sm menu-button" onClick=(action toggleAction)}}
+        {{#paper-button raised=false classNames="hide-gt-sm" onClick=(action toggleAction)}}
           {{ paper-icon "menu" }}
         {{/paper-button}}
       {{/paper-sidenav-toggle}}
 
+      <box></box>
 
       {{#ui-button iconButton=true}}
         {{ paper-icon "search" }}
