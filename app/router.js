@@ -19,6 +19,7 @@ Router.map(function() {
 
      this.route('clientes', function() {
         this.route('lista');
+        this.route('report');
         this.route('novo');
         this.route('editar', { path: '/:pessoa_id/editar' });
       });

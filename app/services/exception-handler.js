@@ -7,7 +7,7 @@ export default Service.extend({
 
   exceptionTypes:Object.freeze({
     communication: 'Ocorreu uma falha de comunicação com o servidor.',
-    authenticaton: 'Ocorreu um problema com seu email ou sua senha, por favor tente novamente.',
+    authenticaton: 'Email ou sua senha inválido, por favor tente novamente.',
     validation: 'Existem campos com problemas, verifique!',
     genericValidation: '',
     backendError: 'Ocorreu um erro no servidor.',
@@ -29,7 +29,10 @@ export default Service.extend({
     if(hasException){
       set(exceptionOptions, 'hasMessage', get(exception, 'message') || get(exception, 'json.message'));
       set(exceptionOptions, 'hasError', get(exception, 'error') || get(exception, 'json.error'));
-      set(exceptionOptions, 'hasErrors', get(exception, 'errors'));
+      set(exceptionOptions, 'hasErrors', get(exception, 'errors') || get(exception, 'json.errors'));
+
+      set(exceptionOptions, 'error', get(exception, 'error') || get(exception, 'json.error'));
+      set(exceptionOptions, 'errors', get(exception, 'errors') || get(exception, 'json.errors'));
       let hasErrors = get(exceptionOptions, 'hasErrors');
       if(hasErrors){
         let error = hasErrors[0];
@@ -54,6 +57,8 @@ export default Service.extend({
       return 'authenticaton';
     }else if(hasDetail && hasTitle || !hasException){
       return 'communication';
+    }else if(hasDetail){
+      return 'genericValidation';
     }
     return 'unknow';
   },
@@ -97,15 +102,23 @@ export default Service.extend({
   handleBackendErrorException(exception){
     let flashMessages = get(this, 'flashMessages');
     let message = this.getExceptionMessage('backendError');
-    const { errors } = exception;
+    let errors = '';
+    if (exception.errors) {
+      errors = exception.errors;
+    } else {
+      errors = get(exception, 'json.errors');
+    }
     const error = errors[0];
     const { status } = error;
     message += ' Código do erro: '+status;
+    // if (error.detail) {
+    //   message += '\n'+error.detail;
+    // }
     flashMessages.add({message});
   },
 
   handleGenericValidationException(exception){
-    const { errors } = exception;
+    const { errors } = exception.json;
     let error = errors[0];
     let { detail } = error;
     let flashMessages = get(this, 'flashMessages');

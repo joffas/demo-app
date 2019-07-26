@@ -1,0 +1,14 @@
+{{#ui-toolbar class="toolbar-condominio" as |toolbar|}}
+  {{#toolbar.actions}}
+    {{#ui-button class="novo" accent=true raised=true fab=true onClick=(transition-to "autenticado.clientes.novo")}}
+      {{ paper-icon "print" }}
+    {{/ui-button}}
+  {{/toolbar.actions}}
+
+  {{#toolbar.content}}
+    <span class="md-header">Relatório de Contatos</span>
+  {{/toolbar.content}}
+{{/ui-toolbar}}
+<box class="page-section">
+  <iframe id="documento" name="documento" src="http://localhost/mos-2-5.pdf" class="fit-width"></iframe>
+</box>

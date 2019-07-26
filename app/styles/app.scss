@@ -17,6 +17,30 @@ body {
 page {
   min-width: auto;
 }
+/*
+iframe {
+  margin:10;
+  padding:0;
+  height: calc(100vh - 5px);
+  width: 100%;//calc(100vh - 5px);
+  border:none;
+}*/
+iframe {
+  height: 100%;
+  width: 100%;
+  border:none;
+}
+
+.page-section {
+  background: white;
+  border-top: 1px rgba(0,0,0,0.2) solid;
+  border-bottom: 1px rgba(0,0,0,0.2) solid;
+  margin-left:10rem;
+  padding:0;
+  height: calc(100vh - 5px);
+  width: calc(100% - 10rem);//calc(100vh - 5px);
+  //border:none;
+}
 
 @media (max-width: 425px) {
   .flash-message {
@@ -647,6 +671,12 @@ md-list {
 
 .permissao-adicionar {
   position: static;
+}
+
+.flex.grow.documento{
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .md-list-item-text {

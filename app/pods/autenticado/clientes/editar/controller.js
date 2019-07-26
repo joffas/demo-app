@@ -2,10 +2,12 @@ import Controller from '@ember/controller';
 import { alias } from '@ember/object/computed';
 import { set, get } from '@ember/object';
 import computed from 'ember-macro-helpers/computed';
+import { inject as service } from '@ember/service';
 //import { isEmpty } from '@ember/utils';
 
 export default Controller.extend({
 
+  flashMessages: service(),
   cliente: alias('model.pessoa'),
   estados: alias('model.estados'),
 //  municipios: alias('model.municipios'),
@@ -36,12 +38,23 @@ export default Controller.extend({
       if (cliente.validate()){
         cliente.save().then(() => {
           this.transitionToClientes();
+        })
+        .catch(error => {
+          const flashMessages = get(this, 'flashMessages');
+          flashMessages.add({ message: error.errors[0].detail });
+          this.transitionToClientes();
         });
       }
     },
 
     excluir(cliente) {
-      cliente.destroyRecord().then(() => {
+      cliente.destroyRecord().
+      then(() => {
+        this.transitionToClientes();
+      })
+      .catch(error => {
+        const flashMessages = get(this, 'flashMessages');
+        flashMessages.add({ message: error.errors[0].detail });
         this.transitionToClientes();
       });
     },

@@ -1,0 +1,13 @@
+{{#ui-toolbar class="toolbar-condominio" as |toolbar|}}
+  {{#toolbar.actions}}{{/toolbar.actions}}
+
+  {{#toolbar.content}}
+    <span class="md-header">Erro</span>
+  {{/toolbar.content}}
+{{/ui-toolbar}}
+
+<box class="content-operador">
+  {{#each model.errors as |error|}}
+    {{ error.detail }}
+  {{/each}}
+</box>

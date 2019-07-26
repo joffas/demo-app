@@ -1,0 +1,9 @@
+{{#if isCordova}}
+
+  {{ progress-circular }}
+
+{{else}}
+
+  <iframe src={{ pdfFile.url }} type={{ type }} class="fit-width"></iframe>
+
+{{/if}}
