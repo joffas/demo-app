@@ -8,14 +8,14 @@ export default Route.extend(ApplicationRouteMixin, {
   flashMessages: service(),
   routeAfterAuthentication: 'autenticado',
 
-  actions: {
-     error({ errors }) {
-       console.log('entrou aqui',errors);
-       const flashMessages = get(this, 'flashMessages');
-       flashMessages.add({ message: errors[0].detail });
+  // actions: {
+  //    error({ errors }) {
+  //      console.log('entrou aqui',errors);
+  //      const flashMessages = get(this, 'flashMessages');
+  //      flashMessages.add({ message: errors[0].detail });
 
-       return true;
-     }
-  }
+  //      return true;
+  //    }
+  // }
 
 });

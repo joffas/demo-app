@@ -1,6 +1,6 @@
 {{#ui-toolbar class="toolbar-condominio" as |toolbar|}}
   {{#toolbar.actions}}
-    {{#ui-button class="novo" accent=true raised=true fab=true onClick=(transition-to "autenticado.clientes.novo")}}
+    {{#ui-button class="novo" accent=true raised=true fab=true onClick=(transition-to "autenticado.clientes.report")}}
       {{ paper-icon "print" }}
     {{/ui-button}}
   {{/toolbar.actions}}
@@ -9,6 +9,20 @@
     <span class="md-header">Relatório de Contatos</span>
   {{/toolbar.content}}
 {{/ui-toolbar}}
-<box class="page-section">
-  <iframe id="documento" name="documento" src="http://localhost/mos-2-5.pdf" class="fit-width"></iframe>
+<box class="content-operador">
+  {{#paper-list class="lista-condominios striped"}}
+    {{#paper-subheader}}
+      <box xs="12">
+      {{ paper-input
+        class="nome"
+        value=nome
+        onChange=(action (mut nome))
+        label="Pesquisa contatos..."
+      }}
+      </box>
+    {{/paper-subheader}}
+  <box class="page-section">
+    <iframe id="documento" name="documento" src="http://localhost/{{ model.nome }}" class="fit-width"></iframe>
+  </box>
+    {{/paper-list}}
 </box>
