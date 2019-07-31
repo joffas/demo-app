@@ -1,0 +1,20 @@
+    {{#each model.pessoas as |cliente|}}
+
+      {{#paper-item class="item md-2-line"}}
+        <hbox class="list-item-action"></hbox>
+        <hbox class="md-list-item-text">
+          <box xs="5" class="razao-social">{{ cliente.nome }}</box>
+          <box class="email">{{ cliente.email }}</box>
+        </hbox>
+      {{/paper-item}}
+
+    {{else}}
+
+      {{#paper-item class="item md-2-line"}}
+        <box class="list-item-action"></box>
+        <box class="md-list-item-text">
+          <h3 class="mensagem">Nenhum contato foi encontrado para o filtro informado.</h3>
+        </box>
+      {{/paper-item}}
+
+    {{/each}}

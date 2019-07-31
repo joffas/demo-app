@@ -1,0 +1,32 @@
+{{#ui-toolbar class="toolbar-condominio" as |toolbar|}}
+  {{#toolbar.actions}}
+    {{#ui-button class="novo" accent=true raised=true fab=true onClick=(transition-to "autenticado.clientes.subrota.pesquisa")}}
+      {{ paper-icon "list_alt" }}
+    {{/ui-button}}
+    {{#ui-button class="relatorio" accent=true raised=true fab=true onClick=(transition-to "autenticado.clientes.subrota.relatorio")}}
+      {{ paper-icon "print" }}
+    {{/ui-button}}
+  {{/toolbar.actions}}
+
+  {{#toolbar.content}}
+    <span class="md-header">Contatos</span>
+  {{/toolbar.content}}
+{{/ui-toolbar}}
+
+<box class="content-operador">
+  {{#paper-list class="lista-condominios striped"}}
+    {{#paper-subheader}}
+      <box xs="12">
+        {{ paper-input
+          class="nome"
+          value=nome
+          onChange=(action (mut nome))
+          label="Pesquisa contatos..."
+        }}
+      </box>
+    {{/paper-subheader}}
+
+    {{ outlet }}
+
+  {{/paper-list}}
+</box>

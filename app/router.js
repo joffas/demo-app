@@ -22,6 +22,10 @@ Router.map(function() {
         this.route('report');
         this.route('novo');
         this.route('editar', { path: '/:pessoa_id/editar' });
+        this.route('subrota', function() {
+          this.route('pesquisa');
+          this.route('relatorio');
+        });
       });
 
     this.route('perfil', function() {

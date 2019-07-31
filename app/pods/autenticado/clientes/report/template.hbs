@@ -1,6 +1,6 @@
 {{#ui-toolbar class="toolbar-condominio" as |toolbar|}}
   {{#toolbar.actions}}
-    {{#ui-button class="novo" accent=true raised=true fab=true onClick=(transition-to "autenticado.clientes.report")}}
+    {{#ui-button class="novo" accent=true raised=true fab=true}}
       {{ paper-icon "print" }}
     {{/ui-button}}
   {{/toolbar.actions}}
@@ -22,7 +22,11 @@
       </box>
     {{/paper-subheader}}
   <box class="page-section">
-    <iframe id="documento" name="documento" src="http://localhost/{{ model.nome }}" class="fit-width"></iframe>
+    {{#if model.nome }}
+      <iframe id="documento" name="documento" src="http://localhost/{{ model.nome }}" class="fit-width"></iframe>
+    {{else}}
+    {{/if}}
+
   </box>
     {{/paper-list}}
 </box>
